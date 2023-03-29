@@ -1,2 +1,2 @@
 # mountainOS
-The next generation of AvalancheOS.
+The next generation beyond AvalancheOS.
