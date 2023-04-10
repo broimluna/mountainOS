@@ -72,6 +72,9 @@ p {
 border-radius: 5px;
 }
 
+.disabled {
+  display: none !important;
+}
 
 
 

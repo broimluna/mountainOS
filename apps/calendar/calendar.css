@@ -171,6 +171,7 @@
     height: 75px;
     background: rgba(164, 164, 164, 1);
     margin-top: 5px;
+    display: none;
     border-radius: 4px;
   }
   

@@ -9,10 +9,10 @@
 	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script src="system/js/kernel.js"></script>	
-	<script src="system/js/taskbar.js"></script>
+	<script src="system/js/desktop.js"></script>	
 	<script src="system/js/cookies.js"></script>
-	<script src="system/js/screensaver.js"></script>							
-	<link rel="stylesheet" type="text/css" href="system/css/style.css" />
+	<script src="system/js/screensaver.js"></script>
+	<script src="system/js/taskbar.js"></script>							
 	<link rel="stylesheet" type="text/css" href="system/css/themes/default.css" />
 	<title>mountainOS</title>
 </head>
@@ -21,29 +21,29 @@
 
 	<div id="desktop" class="desktop">
 		
-		<div class="window closed" data-html="true" data-title="Paint" taskicon="<img src='system/img/icons/paint.png' class='taskpanelimg' width='32' height='32'>" headicon="<img src='system/img/icons/paint.png' class='winheadimg' width='26' height='26'>">
-			<iframe height="100%" width="100%" src="apps/jspaint/index.html"></iframe>
+		<div class="window closed" data-html="true" data-title="<strong>Paint</strong>" taskicon="<img src='system/img/icons/paint.png' class='taskpanelimg' width='42' height='42'>" headicon="<img src='system/img/icons/paint.png' class='winheadimg' width='26' height='26'>">
+			<iframe class="iframe" height="100%" width="100%" src="apps/jspaint/index.html"></iframe>
 		</div>
-		<div class="window closed" data-html="true" data-title="Notepad" taskicon="<img src='system/img/icons/notepad.png' class='taskpanelimg' width='32' height='32'>" headicon="<img src='system/img/icons/notepad.png' class='winheadimg' width='26' height='26'>">			
-			<iframe src="apps/notepad/index.html"></iframe>
+		<div class="window closed" data-html="true" data-title="<strong>Notepad</strong>" taskicon="<img src='system/img/icons/notepad.png' class='taskpanelimg' width='42' height='42'>" headicon="<img src='system/img/icons/notepad.png' class='winheadimg' width='26' height='26'>">			
+			<iframe class="iframe" src="apps/notepad/index.html"></iframe>
 		</div>
-		<div class="window closed" data-html="true" data-title="Calendar" taskicon="<img src='system/img/icons/calendar.png' class='taskpanelimg' width='32' height='32'>" headicon="<img src='system/img/icons/calendar.png' class='winheadimg' width='26' height='26'>">		
-			<iframe src="apps/calendar/index.html"></iframe>
+		<div class="window closed" data-html="true" data-title="<strong>Calendar</strong>" taskicon="<img src='system/img/icons/calendar.png' class='taskpanelimg' width='42' height='42'>" headicon="<img src='system/img/icons/calendar.png' class='winheadimg' width='26' height='26'>">		
+			<iframe class="iframe" src="apps/calendar/index.html"></iframe>
 		</div>
-		<div class="window closed" data-html="true" data-title="Calculator" taskicon="<img src='system/img/icons/calculator.png' class='taskpanelimg' width='32' height='32'>" headicon="<img src='system/img/icons/calculator.png' class='winheadimg' width='26' height='26'>">
-			<iframe src="apps/calc/index.html"></iframe>
+		<div class="window closed" data-html="true" data-title="<strong>Calculator</strong>" taskicon="<img src='system/img/icons/calculator.png' class='taskpanelimg' width='42' height='42'>" headicon="<img src='system/img/icons/calculator.png' class='winheadimg' width='26' height='26'>">
+			<iframe class="iframe" src="apps/calc/index.html"></iframe>
 		</div>
-		<div class="window closed" data-html="true" data-title="Bronze" taskicon="<img src='system/img/icons/bronze.png' class='taskpanelimg' width='32' height='32'>" headicon="<img src='system/img/icons/bronze.png' class='winheadimg' width='26' height='26'>">
-			<iframe src="apps/bronze/index.html"></iframe>
+		<div class="window closed" data-html="true" data-title="<strong>Bronze</strong>" taskicon="<img src='system/img/icons/bronze.png' class='taskpanelimg' width='42' height='42'>" headicon="<img src='system/img/icons/bronze.png' class='winheadimg' width='26' height='26'>">
+			<iframe class="iframe" src="apps/bronze/index.html"></iframe>
 		</div>
-		<div class="window closed" data-html="true" data-title="VMBox" taskicon="<img src='system/img/icons/vmbox.png' class='taskpanelimg' width='32' height='32'>" headicon="<img src='system/img/icons/vmbox.png' class='winheadimg' width='26' height='26'>">
+		<div class="window closed" data-html="true" data-title="<strong>VMBox</strong>" taskicon="<img src='system/img/icons/vmbox.png' class='taskpanelimg' width='42' height='42'>" headicon="<img src='system/img/icons/vmbox.png' class='winheadimg' width='26' height='26'>">
 			<a href="apps/vmbox/index.html" target="vbox">Home</a>
-			<iframe id="vbox" src="apps/vmbox/index.html" name="vbox"></iframe>
+			<iframe class="iframe" id="vbox" src="apps/vmbox/index.html" name="vbox"></iframe>
 		</div>
-		<div class="window closed" data-html="true" data-title="Minesweeper" taskicon="<img src='system/img/icons/minesweeper.png' class='taskpanelimg' width='32' height='32'>" headicon="<img src='system/img/icons/minesweeper.png' class='winheadimg' width='26' height='26'>">			
-			<iframe src="apps/minesweeper/index.html"></iframe>
+		<div class="window closed" data-html="true" data-title="<strong>Minesweeper</strong>" taskicon="<img src='system/img/icons/minesweeper.png' class='taskpanelimg' width='42' height='42'>" headicon="<img src='system/img/icons/minesweeper.png' class='winheadimg' width='26' height='26'>">			
+			<iframe class="iframe" src="apps/minesweeper/index.html"></iframe>
 		</div>
-		<div class="window closed" data-html="true" data-title="Media Player" taskicon="<img src='system/img/icons/mediaplayer.png' class='taskpanelimg' width='32' height='32'>" headicon="<img src='system/img/icons/mediaplayer.png' class='winheadimg' width='26' height='26'>">
+		<div class="window closed" data-html="true" data-title="<strong>Media Player</strong>" taskicon="<img src='system/img/icons/mediaplayer.png' class='taskpanelimg' width='42' height='42'>" headicon="<img src='system/img/icons/mediaplayer.png' class='winheadimg' width='26' height='26'>">
 			<link rel="stylesheet" type="text/css" href="apps/mediaplayer/mediaplayer.css" />
 			<script src="apps/mediaplayer/mediaplayer.js"></script>			
 			<div class="wplist">
@@ -87,12 +87,12 @@
 			</div>
 			<audio style="width:100%;height:28px;bottom:0;position:absolute;" id="my-audio" controls loop></audio>		
 		</div>
-			<div class="window closed" data-html="true" taskicon="<img src='system/img/icons/settings.png' width='32' height='32'>" headicon="<img src='system/img/icons/settings.png' class='winheadimg' width='26' height='26'>" data-title="Control Panel">
+			<div class="window closed" data-html="true" taskicon="<img src='system/img/icons/settings.png' width='42' height='42'>" headicon="<img src='system/img/icons/settings.png' class='winheadimg' width='26' height='26'>" data-title="<strong>Control Panel</strong>">
 				<script src="apps/settings/settings.js"></script>
 				<link rel="stylesheet" type="text/css" href="apps/settings/settings.css" />			
 				<div id="tabsettings">
-					<button id="settingsbutton" onclick="openTab('Customization')">Customization</button>
-					<button id="settingsbutton" onclick="openTab('About')">About</button>
+					<button class="settingsbutton currentst" data-title="Customization" onclick="openTab('Customization')">Customization</button>
+					<button class="settingsbutton" data-title="About" onclick="openTab('About')">About</button>
 				</div>
 				<hr id="settingshr" class="tabset">
 		
@@ -110,7 +110,7 @@
 					<input id="inputbtn" class="wppicker" type="file" accept="image/*" onchange="changeBG(event)">
 					<br>
 					<br>
-					<button onclick="localBG()">Enable Bing Wallpaper</button>
+					<button onclick="localBG()">Enable Local Wallpaper</button>
                     <br>
 					<br>
 					<button onclick="resetBG(event)">Reset to default</button>
@@ -128,7 +128,7 @@
 					<h1 id="settingsh1" class="tskbrtab">Others</h1>
 					<input type="checkbox" onclick="centeredApps()" id="centrdAppsChk" class="checkBox"><a class="centrdAppsTxt">Set the taskbar to the left</a></input>
 				    </div>
-				<div id="About" class="tab" style="display:none;text-align: center;overflow: hidden;">
+				<div id="About" data-title="About" class="tab" style="display:none;text-align: center;overflow: hidden;">
 		
 					<div id="abranding">
 					<img src='system/img/systemlogo.png' width="72px" height="78px"></img>
@@ -151,10 +151,11 @@
 			
 			
 		<div id="taskbar">
-			<a id="appsBtn" onclick="appstoggle()"><img src='system/img/icons/apps.png' width='36' height='36'></a>
+			<a id="appsBtn" onclick="appstoggle()"><img src='system/img/icons/apps.png' width='46' height='46'></a>
 		</div>
-		<div class="timedate">
-			<a class="timedatetext"></a>
+		<div class="quickfeatures">
+			<a class="timedatetext" onclick="timedatetoggle();"></a>
+			<a class="quickweanewsap" onclick="quickweanewstoggle();"></a>
 		 </div>
 		
 		<div id="icons">
@@ -168,7 +169,7 @@
 		
 		
 		<div id="appsmenu">
-			<h1 class="appsHtxt">Apps</h1>
+			<input type="text" id="appSearch" onkeyup="appSearch()" placeholder="Click here to search for an app" title="Click here to search for an app">
 			<div id="appicons">
 				<center>
 					<li><a class="openWindow" data-id="0"><img border="0" alt="" src="system/img/icons/paint.png" width="32" height="32"><br>Paint</a></li>
@@ -180,52 +181,55 @@
 					<li><a class="openWindow" data-id="6"><img border="0" alt="" src="system/img/icons/minesweeper.png" width="32" height="32"><br>Minesweeper</a></li>
 					<li><a class="openWindow" data-id="7"><img border="0" alt="" src="system/img/icons/mediaplayer.png" width="32" height="32"><br>Media Player</a></li>
 					<li><a class="openWindow" data-id="8"><img border="0" alt="" src="system/img/icons/settings.png" width="32" height="32"><br>Control Panel</a></li>
-
 				</center>		
-			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<hr>
-				<input type="text" id="appSearch" onkeyup="appSearch()" placeholder="Press here to search for an app" title="Press here to search for an app">
-			
+			</div>	
+					
 		</div>
 
-		<div id="contextMenu" class="context-menu" style="display: none; left: 140px; top: 421px;">
-			<ul>
-				<li class="openWindow" data-id="8">Open Control Panel</li>
-				<li onclick="window.location.reload(true);">Reload mountainOS</li>
-				<li onclick="activatefull(document.documentElement);">Activate Fullscreen</li>
-				<li onclick="deactivatefull();">Deactivate Fullscreen</li>
-				
+		<div id="quickweanews">
+			<h1>Welcome back!</h1>
+			<h2 class="quiweatherfull">It is currently <span id="quiweather"></span></h2>
+			<hr>
+			<div id="quinews">
+			<script src="https://rss.bloople.net/?url=https%3A%2F%2Fwww.theverge.com%2Frss%2Findex.xml&showtitle=false&type=js"></script>
+		   </div>		
+		   <hr> 
+			<h2>
+			  Powered by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a> and <a href="https://theverge.com/" target="_blank">The Verge</a>
+			</h2>
+		</div>
 
-			</ul>
+			<div id="timedateflyout">
+				<h1>The time is <span id="quitime"></span></h2>
+				<iframe src="apps/calendar/index.html"></iframe>
+			   <hr> 
 			</div>
+
 
 
 			  
 
-			<div id="startup">
-				<div><img id="startuplogo" src="system/img/systemlogo.png"></div>	
-				<div><img id="startupload" src="system/img/startupload.gif"></div>	
-			</div>
+
 
 	</div>
 	<a id="watermark"></a>
+
+	<div id="startup">
+		<div><img id="startuplogo" src="system/img/systemlogo.png"></div>	
+		<div><img id="startupload" src="system/img/startupload.gif"></div>	
+	</div>
+
+	
+	<div id="contextMenu" class="context-menu" style="display: none; left: 140px; top: 421px;">
+		<ul>
+			<li class="openWindow" data-id="8">Open Control Panel</li>
+			<li onclick="window.location.reload(true);">Reload mountainOS</li>
+			<li onclick="activatefull(document.documentElement);">Activate Fullscreen</li>
+			<li onclick="deactivatefull();">Deactivate Fullscreen</li>
+			
+
+		</ul>
+		</div>
 </body>
 <script>
 	$('#colorpicker').on('change', function() {
@@ -233,13 +237,17 @@
 	const winhead = document.getElementsByClassName('windowHeader');
     $(winhead).css('background', cpcolor);
 	$('#taskbar').css('background', cpcolor);
+	$('.quickfeatures').css('background', cpcolor);
 	$('#appsmenu').css('background', cpcolor);
+	$('#quickweanews').css('background', cpcolor);
+	$('#timedateflyout').css('background', cpcolor);
 	$('#htmltemp').css('color', cpcolor);
 	$('#watermark').css('color', cpcolor);
 	$('#abranding a').css('color', cpcolor);
 	$('button').css('border-color', cpcolor);
 	$('.checkBox').css('color', cpcolor);
 	document.cookie = "mOSColor=" + cpcolor;
+	localStorage.setItem("mOSColor", cpcolor)
 })
 
 
@@ -249,7 +257,6 @@ function centeredApps() {
 	// Get the output text
 	var taskbar = document.getElementById("taskbar");
 	var appsmenu = document.getElementById("appsmenu");
-	var timedate = document.getElementsByClassName("timedate")[0];
 	// If the checkbox is checked, display the output text
 	if (checkBox.checked == true){
 	  appsmenu.style.margin = "unset";
@@ -258,13 +265,9 @@ function centeredApps() {
 	  taskbar.style.borderBottomLeftRadius = "0px";
 	  taskbar.style.borderBottomRightRadius = "0px";
 	  taskbar.style.bottom = "0px";
-	  timedate.style.borderTopRightRadius = "0px";
-	  timedate.style.bottom = "0";
-	  timedate.style.right = "0";
-	  timedate.style.borderBottomLeftRadius = "0px";
-	  timedate.style.borderBottomRightRadius = "0px";
 	  appsmenu.style.bottom = "58px";
 	  document.cookie = "mOSLeftBar=true"
+	  localStorage.setItem("mOSLeftBar", "true")
 	} else {
 		appsmenu.style.margin = "";
 	  taskbar.style.margin = "";
@@ -272,13 +275,10 @@ function centeredApps() {
 	  taskbar.style.borderBottomLeftRadius = "";
 	  taskbar.style.borderBottomRightRadius = "";
 	  taskbar.style.bottom = "";
-	  timedate.style.borderTopRightRadius = "";
-	  timedate.style.bottom = "";
-	  timedate.style.right = "";
-	  timedate.style.borderBottomLeftRadius = "";
-	  timedate.style.borderBottomRightRadius = "";
 	  appsmenu.style.bottom = "";
 		document.cookie = "mOSLeftBar=false"
+		localStorage.setItem("mOSLeftBar", "false")
+
 	}
 }
 

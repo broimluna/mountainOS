@@ -1,5 +1,6 @@
-var kernelver = "1.0";
-var buildnumb = "3400";
+var kernelver = "2.0";
+var buildnumb = "4800";
+var iframei = 0
 var i = 0,
 minimizedWidth = new Array,
 minimizedHeight = new Array,
@@ -28,63 +29,16 @@ id;
 		let nLastModif = document.lastModified;
 		var watermark = document.getElementById("watermark")
 		watermark.innerText = "Luna's mountainOS\n Build " + buildnumb + "\nCompiled on " + nLastModif;
-
 		
 })
 
 //Startup Functions 
 function startupFunctions() {
 	startDate();
+	quiloadWeather();
+	quiloadDate();
 	startCookies();
 }
-
-//right click menu huh
-document.oncontextmenu = rightClick;
-  
-  function rightClick(clickEvent) {
-	  clickEvent.preventDefault();
-	  // return false;
-  }
-  document.onclick = hideMenu;
-  document.oncontextmenu = rightClick;
-	
-  function hideMenu() {
-	  document.getElementById("contextMenu")
-			  .style.display = "none"
-  }
-
-  function rightClick(e) {
-	  e.preventDefault();
-
-	  if (document.getElementById("contextMenu")
-			  .style.display == "block")
-		  hideMenu();
-	  else{
-		  var menu = document.getElementById("contextMenu")
-
-		  menu.style.display = 'block';
-		  menu.style.left = e.pageX + "px";
-		  menu.style.top = e.pageY + "px";
-	  }
-  }
-
-  function activatefull(ele) {
-	if (ele.requestFullscreen) {
-		ele.requestFullscreen();
-	}
-}
-
-// Function for full screen activation
-function deactivatefull() {
-	if (document.exitFullscreen) {
-		document.exitFullscreen();
-	}
-}
-
-
-
-
-//
 
 
 
@@ -172,6 +126,11 @@ $(document).ready(function(){
 		$(this).wrapInner('<div class="wincontent"></div>');
 		$(this).prepend('<div class="windowHeader"><strong>' + $(this).attr("headicon") + $(this).attr("data-title") + '</strong><span title="Minimize" class="winminimize"><span></span></span><span title="Maximize" class="winmaximize"><span></span><span></span></span><span title="Close" class="winclose">x</span></div>');
 	});
+
+	$(".iframe").each(function() {
+		$(this).attr('data-id', iframei);
+		iframei++;
+	});
 	
 	$("#minimPanel" + (i-1)).addClass('activeTab');
 	$("#window" + (i-1)).addClass('activeWindow');
@@ -184,17 +143,19 @@ $(document).ready(function(){
 		makeWindowActive($(this).attr("data-id"));
     });
 	
-    $(".winclose").click(function(){		// close window
-		closeWindwow($(this).parent().parent().attr("data-id"));
-    });	
+
+	$(".winclose").click(function(){
+		var dataId = $(this).parent().parent().attr("data-id");
+		closeWindwow(dataId);
+		setTimeout(function() {
+			document.getElementsByClassName('iframe')[dataId].src = document.getElementsByClassName('iframe')[dataId].src;
+		}, 500);
+	});
+	
+	
 
     $(".winminimize").click(function(){		// minimize window
 		minimizeWindow($(this).parent().parent().attr("data-id"));
-		if ($('.window').hasClass('fullSizeWindow')){
-			$('.timedate').css("opacity", "1")
-		} else {
-			$('.timedate').css("opacity", "1")
-		}
     });	
 	
     $(".taskbarPanel").click(function(){		// taskbar click
@@ -207,11 +168,6 @@ $(document).ready(function(){
 			} else {								// activate if inactive
 				makeWindowActive(id);
 			}
-		}
-		if ($('.window').hasClass('fullSizeWindow')){
-			$('.timedate').css("opacity", "0")
-		} else {
-			$('.timedate').css("opacity", "1")
 		}
     });	
 	
@@ -234,11 +190,7 @@ $(document).ready(function(){
 			
 			adjustFullScreenSize();
 		}
-		if ($('.window').hasClass('fullSizeWindow')){
-			$('.timedate').css("opacity", "0")
-		} else {
-			$('.timedate').css("opacity", "1")
-		}
+	
     });		
 	adjustFullScreenSize();	
 });

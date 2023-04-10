@@ -1,7 +1,7 @@
 //THEMES COOKIES
 // *** TO BE CUSTOMISED ***
 
-var style_cookie_name = "UOSTheme" ;
+var style_cookie_name = "mOSTheme" ;
 var style_cookie_duration = 30 ;
 var style_domain = "" ;
 
@@ -93,28 +93,23 @@ function createCookie(cname,cvalue,exdays) {
 
   
   function checkBGCookie() {
-	if (localStorage.hasOwnProperty('AeroBG') != -1)  {
-		var AvaBGLS = localStorage.getItem("AeroBG");
-		var base64uncom0 = AvaBGLS.replaceAll("%", "A");
+	if (localStorage.hasOwnProperty('mOSBG') != -1)  {
+		var mOSBGLS = localStorage.getItem("mOSBG");
+		var base64uncom0 = mOSBGLS.replaceAll("%", "A");
 		var base64uncom1 = base64uncom0.replace("ebubjnbhf", "data:image");
-		var base64uncom2 = base64uncom1.replace("aerolssecurity", "base64");
+		var base64uncom2 = base64uncom1.replace("moslssecurity", "base64");
 		var base64uncompressed = base64uncom2.replaceAll("'", "F");
 		$('.desktop').css('background', 'url(' + base64uncompressed + ')');
 
 	} else {
-        void(0);		
+		return;		
 	}
   }
 
 
 
-function setColourCookie() {
-	let root = document.documentElement;
-	var hsl1 = getCookie("AeroColorTheme");
-	
-  }
   function mOSLeftBarCookie() {
-  if (document.cookie.indexOf("mOSLeftBar=true") != -1)  {
+  if (document.cookie.indexOf("mOSLeftBar=true") != -1 || localStorage.getItem('mOSLeftBar') === "true")  {
 	var taskbar = document.getElementById("taskbar");
 	var checkBox = document.getElementById("centrdAppsChk");
 	var appsmenu = document.getElementById("appsmenu");
@@ -125,22 +120,20 @@ function setColourCookie() {
 	taskbar.style.borderBottomLeftRadius = "0px";
 	taskbar.style.borderBottomRightRadius = "0px";
 	taskbar.style.bottom = "0px";
-	timedate.style.borderTopRightRadius = "0px";
-	timedate.style.bottom = "0";
-	timedate.style.right = "0";
-	timedate.style.borderBottomLeftRadius = "0px";
-	timedate.style.borderBottomRightRadius = "0px";
 	appsmenu.style.bottom = "58px";
 	checkBox.checked = "true"
   }
 }
 
   function setColorCookie() {
-	var cpcolor = getCookie("mOSColor");
+	var cpcolor = getCookie("mOSColor") || localStorage.getItem("mOSColor");
 	const winhead = document.getElementsByClassName('windowHeader');
     $(winhead).css('background', cpcolor);
 	$('#taskbar').css('background', cpcolor);
+	$('.quickfeatures').css('background', cpcolor);
 	$('#appsmenu').css('background', cpcolor);
+	$('#quickweanews').css('background', cpcolor);
+	$('#timedateflyout').css('background', cpcolor);
 	$('#htmltemp').css('color', cpcolor);
 	$('#watermark').css('color', cpcolor);
 	$('#abranding a').css('color', cpcolor);
@@ -151,10 +144,12 @@ function setColourCookie() {
   
   function defaultColorsCookies() {
 	eraseCookie("mOSColor")
+	localStorage.removeItem("mOSColor")
    };
 
   function startCookies() {
 	setColorCookie();
 	mOSLeftBarCookie();
+	checkBGCookie();
   }
    

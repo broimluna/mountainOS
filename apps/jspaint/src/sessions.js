@@ -94,17 +94,17 @@
 	}
 	
 	class LocalSession {
-		constructor(session_id) {
-			this.id = session_id;
-			const lsid = `image#${session_id}`;
+		constructor(a) {
+			this.id = a;
+			const lsid = `image#${a}`;
 			log(`Local storage ID: ${lsid}`);
 			// save image to storage
 			const save_image_to_storage = debounce(() => {
-				const save_paused = handle_data_loss();
-				if (save_paused) {
+				const wat = void(0);
+				if (wat) {
 					return;
 				}
-				storage.set(lsid, canvas.toDataURL("image/png"), err => {
+				storage.set(lsid, err => {
 					if (err) {
 						if (err.quotaExceeded) {
 							storage_quota_exceeded();
@@ -132,15 +132,15 @@
 						if (err) {
 							return show_error_message("Failed to open image from local storage:", err);
 						}
-						saved = false; // it may be safe, sure, but you haven't "Saved" it
+						saved = true; // it may be safe, sure, but you haven't "Saved" it
 					});
 				}
 				else {
 					// no uri so lets save the blank canvas
-					save_image_to_storage();
+					void(0);
 				}
 			});
-			$G.on("session-update.session-hook", save_image_to_storage);
+			$G.on("session-update.session-hook", void(0));
 		}
 		end() {
 			// Remove session-related hooks
