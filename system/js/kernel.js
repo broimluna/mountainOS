@@ -1,5 +1,5 @@
-var kernelver = "2.0";
-var buildnumb = "4800";
+var kernelver = "3";
+var buildnumb = "6000";
 var iframei = 0
 var i = 0,
 minimizedWidth = new Array,
@@ -39,6 +39,20 @@ function startupFunctions() {
 	quiloadDate();
 	startCookies();
 }
+
+if (/^h/.test(document.location)) {
+	setInterval(function() {
+		// method to be executed;
+		$(".iframe").each(function() {
+			var dataId = $(this).attr("data-id");
+			var datatitle = document.getElementsByClassName("iframe")[dataId].contentDocument.title;
+			document.getElementsByClassName("winheadstrongtitle")[dataId].innerText = datatitle;
+	
+		});
+	  }, 1500);
+  } else {
+	void(0);
+  }
 
 
 
@@ -90,7 +104,7 @@ function openWindow(id) {
 		});
 	}
 }
-function closeWindwow(id) {
+function closeWindow(id) {
 	$("#window" + id).animate({
 		opacity: 0
 	}, 200, function() {
@@ -120,7 +134,7 @@ $(document).ready(function(){
 		minimizedHeight[i] = $(this).height();
 		windowTopPos[i] = $(this).css("top");
 		windowLeftPos[i] = $(this).css("left");
-		$("#taskbar").append('<div class="taskbarPanel" id="minimPanel' + i + '" data-id="' + i + '">' + $(this).attr("taskicon") + '</div>');
+		$("#taskbar").append('<div class="taskbarPanel" id="minimPanel' + i + '" data-id="' + i + '">' + $(this).attr("taskicon") + $(this).attr("data-title") + '</div>');
 		if ($(this).hasClass("closed")) {	$("#minimPanel" + i).addClass('closed');	}		
 		$(this).attr('id', 'window' + (i++));
 		$(this).wrapInner('<div class="wincontent"></div>');
@@ -146,7 +160,7 @@ $(document).ready(function(){
 
 	$(".winclose").click(function(){
 		var dataId = $(this).parent().parent().attr("data-id");
-		closeWindwow(dataId);
+		closeWindow(dataId);
 		setTimeout(function() {
 			document.getElementsByClassName('iframe')[dataId].src = document.getElementsByClassName('iframe')[dataId].src;
 		}, 500);
@@ -173,6 +187,11 @@ $(document).ready(function(){
 	
     $(".openWindow").click(function(){		// open closed window
 		openWindow($(this).attr("data-id"));
+    });
+	$(".reloadWindow").click(function(){	
+		var dataId = $(this).attr("data-id");
+		var window = document.getElementsByClassName('wincontent')[dataId].innerHTML;
+        document.getElementsByClassName('wincontent')[dataId].innerHTML = window;
     });
 
 	
