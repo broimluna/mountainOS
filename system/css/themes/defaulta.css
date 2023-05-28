@@ -402,19 +402,15 @@ border-radius: 4px;
     transition: 0.2s;
 }
 .quickweanewsap {
-    position: relative;
-    height: 4px;
-    display: table;
-    top: calc(0% + -10px);
+    position: absolute;
+    top: calc(0% + 6px);
     border: 2px solid transparent;
-    left: 5px;
-    line-height: 6px;
+    left: 10px;
     color: white;
     font-family: Segoe UI;
     text-align: right;
-    vertical-align: middle;
     font-size: 15px;
-    transition: 0.1s;
+    transition: 0.2s;
 }
 .quickweanewsap:hover, .timedatetext:hover {
     background: transparent !important;
