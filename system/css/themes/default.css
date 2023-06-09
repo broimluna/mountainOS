@@ -883,7 +883,7 @@ border-radius: 4px;
 
 #watermark {
     position: absolute;
-    display: inline-block;
+    display: none;
     bottom: 70px;
     right: 10px;
     font-weight: bold;

@@ -64,6 +64,8 @@
 }
 .widgetstask {
     display: inline-block !important;
+        top: -20px;
+        position: relative;
 }
 .betweenapptitlentsksrchbox, #taskbarSearchBoxchk, .taskbarSearchBoxTxt {
     display: inline-block;
