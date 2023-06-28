@@ -1,23 +1,57 @@
+a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
+    color: white !important;
+    font-family: Segoe UI !important;
+}
+#appSearch {
+    background-image: url("../../img/icons/tbSearchW.png") !important;
+    border-bottom: 1px solid white !important;
+}
+::placeholder {
+    color: white;
+}
 #taskbar {
     width: auto;
     border-radius: 0px;
     bottom: 0;
+    text-align: left !important;
+    background: transparent;
 }
-#appsmenu {
+.window {
+    background-color: transparent;
+}
+#appsmenu, #quickweanews {
     margin: unset !important;
+    bottom: 50px !important;
+    left: -2px;
+    border-radius: 0px;
+    border-top-right-radius: 16px;
+    background-color: transparent;
 }
 .window.fullSizeWindow {
     top: 0 !important;
 }
 
-.quickfeatures {
-    display: none;
-}   
-.centrdAppsTxt, #centrdAppsChk, .betweenapptitlencentrd, #centrdAppsChkSetup {
+.quickweanewsap {
     display: none;
 }
+.context-menu {
+    background: transparent;
+}   
+#quickweanews {
+    display: none !important;
+}
+#timedateflyout {
+    margin: unset !important;
+    bottom: 50px !important;
+    right: -2px !important;
+    border-radius: 0px;
+    border-top-left-radius: 16px;
+    background: transparent;
+}
 
-
+.tdfi {
+    filter: invert(1);    
+}
 
 .currenttheme::before {
     content: "Classic";
@@ -32,7 +66,7 @@
 }
 #timedateflyout {
     top: unset !important;
-    bottom: 60px !important;
+    bottom: 60px;
 }
 .tasktimedate:hover {
     background: transparent !important;
@@ -53,19 +87,18 @@
     visibility: visible;
     opacity: 1;
 }
+
 #appsmenu.openedtop, #quickweanews.opened {
     margin: unset !important;
-    bottom: 60px !important;
+    bottom: 50px !important;
     top: unset !important;
 }
 #quickweanews {
     top: unset !important;
-    bottom: 60px !important;
+    bottom: 60px;
 }
 .widgetstask {
     display: inline-block !important;
-        top: -20px;
-        position: relative;
 }
 .betweenapptitlentsksrchbox, #taskbarSearchBoxchk, .taskbarSearchBoxTxt {
     display: inline-block;

@@ -1,15 +1,14 @@
 $(document).ready(function(){
 	var appsearch = document.getElementById("appSearch");
-	var tasksearch = document.getElementById("taskSearch");
 	$("#appicons").click(function(){
 		document.getElementById("appsmenu").classList.toggle("opened");
 		document.getElementById("appsmenu").classList.toggle("openedtop");
 		appsearch.value = '';
-		tasksearch.value = '';
 		$("#appicons li").css('display', 'block')
 	  }, function(){
 		document.getElementById("appsmenu").classList.remove("opened");
 		document.getElementById("appsmenu").classList.remove("openedtop");
+		document.getElementById("appsBtn").classList.remove("active");
 		appsearch.value = '';
 		tasksearch.value = '';
 		$("#appicons li").css('display', 'block')
@@ -23,8 +22,8 @@ $(document).ready(function(){
     }, function(){
     document.getElementById("appsmenu").classList.remove("opened");
 	document.getElementById("appsmenu").classList.remove("openedtop");
+	document.getElementById("appsBtn").classList.remove("active");
 	appsearch.value = '';
-	tasksearch.value = '';
 
   });
   });
@@ -73,13 +72,15 @@ function taskSearch() {
 
 function appstoggle() {
 	document.getElementById("appsmenu").classList.toggle("opened");
-	document.getElementById("appsmenu").classList.remove("openedtop")
+	document.getElementById("appsBtn").classList.toggle("active");
 }
 function quickweanewstoggle() {
 	document.getElementById("quickweanews").classList.toggle("opened");
+	document.getElementsByClassName("quickweanewsap")[0].classList.toggle("active");
 }
 function timedatetoggle() {
 	document.getElementById("timedateflyout").classList.toggle("opened");
+	document.getElementsByClassName("timedatetext")[0].classList.toggle("active");
 }
 
 function startDate(){
@@ -103,8 +104,6 @@ function startDate(){
     var date = hour + ":" + minute + " • " + m + " " + d + ", " + y
     document.getElementsByClassName("timedatetext")[0].innerText = date;
     document.getElementsByClassName("timedatetext")[0].textContent = date;
-	document.getElementsByClassName("tasktimedate")[0].innerText = date;
-    document.getElementsByClassName("tasktimedate")[0].textContent = date;
 	var quidate = hour + ":" + minute + ":" + seconds + " on " + m + " " + d + ", " + y
 	document.getElementById("quitime").innerText = quidate;
     document.getElementById("quitime").textContent = quidate;
@@ -116,33 +115,53 @@ function quiloadWeather() {
 	var weather = $('.quickweanewsap')
 	var quiweather = $('#quiweather')
 	var quiweathertxt = $('.quiweathertxt')
-	var widgetstask = $('.widgetstask')
+	var api = 'https://api.openweathermap.org/data/2.5/weather' // OpenWeather API url
+	var apikey = "24a64a2d24697b4b292500aaa627a25e"; 
+	weather.html(
+		'<a><img src="system/img/icons/widgets.png" style="vertical-align: middle;" width="46" height="46"></img></a>' + "Fetching the weather..."
+	)
+	quiweather.html(
+		"fetching the weather..."
+	)
 
-	var api = 'https://api.weatherapi.com/v1/current.json' // OpenWeather API url
-	var apikey = "8fa374a51e304822a0132755230906"; 
 
 
-    
-	$.getJSON(api + "?key=" + apikey + "&q=auto:ip&aqi=no", function(data) {
+    function successFunction(position) {
+		var lat = position.coords.latitude;
+		var long = position.coords.longitude;
+	
+	$.getJSON(api + "?appid=" + apikey + "&lat=" + lat + "&lon=" + long + "&units=metric", function(data) {
     // JSON result in `data` variable
-	console.log(data)
 
-	var iconurl = "https:" + data.current.condition.icon;
-
+     var apiicon = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png"
 
 	
 
 	weather.html(
-		'<a><img src='+iconurl+' style="vertical-align: middle;" width="32" height="32"></img></a>' + Math.round(data.current.temp_c) + '°C, ' + data.current.condition.text
-	)
-	widgetstask.html(
-		'<a><img src='+iconurl+' style="vertical-align: middle;" width="46" height="46"></img></a>'
+		'<a><img src='+apiicon+' style="vertical-align: middle;" width="46" height="46"></img></a>' + Math.round(data.main.temp) + '°C, ' + data.weather[0].main
 	)
 	quiweather.html(
-	 Math.round(data.current.temp_c) + '°C, ' + data.current.condition.text
+		Math.round(data.main.temp) + '°C, ' + data.weather[0].description
 	)
 	})
 	}
+
+
+	function errorFunction() {
+		weather.html(
+			'<a><img src="system/img/icons/widgets.png" style="vertical-align: middle;" width="46" height="46"></img></a>' + "Could not fetch weather"
+		)
+		quiweather.html(
+			'<a><img src="system/img/icons/widgets.png" style="vertical-align: middle;" width="46" height="46"></img></a>' + "Could not fetch weather"
+		)
+	}
+
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+	}
+
+}
+	
 
 function quiloadDate() {
     var currentDate = new Date()
